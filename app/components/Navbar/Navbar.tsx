@@ -6,21 +6,11 @@ import { CiMenuBurger } from 'react-icons/ci';
 
 const Navbar = () => {
   const [showNav, setShowNav] = useState<boolean>(false);
-  const [slideIn, setSlideIn] = useState<boolean>(false); 
-
-  useEffect(() => {
-    
-    const timer = setTimeout(() => {
-      setSlideIn(true);
-    }, 100); 
-
-    return () => clearTimeout(timer); 
-  }, []);
 
   return (
     <div className="pt-4">
       <div
-        className={`bg-white bg-opacity-25 px-5 max-w-[1280px] mx-auto pt-5 pb-6 rounded-full transition-transform duration-500 ease-in-out transform ${slideIn ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`bg-white bg-opacity-25 px-5 max-w-[1280px] mx-auto pt-5 pb-6 rounded-full transition-transform`}
       >
         <div className="flex items-center justify-between relative">
           <div className="font-semibold text-xl">
@@ -70,7 +60,7 @@ const Navbar = () => {
         </div>
 
         {showNav && (
-          <div className="md:hidden mt-4">
+          <div className="md:hidden mt-4 pt-3">
             <ul className="flex flex-col space-y-4">
               <li>
                 <a
