@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Hanees' Portfolio",
+  title: "WAIS",
 };
 
 export default function RootLayout({

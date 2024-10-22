@@ -18,15 +18,15 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div>
+    <div className="pt-4">
       <div
-        className={`bg-white bg-opacity-25 px-5 max-w-[1280px] mx-auto mt-3 pt-6 pb-6 rounded-full transition-transform duration-500 ease-in-out transform ${slideIn ? 'translate-y-0' : 'translate-y-full'}`}
+        className={`bg-white bg-opacity-25 px-5 max-w-[1280px] mx-auto pt-5 pb-6 rounded-full transition-transform duration-500 ease-in-out transform ${slideIn ? 'translate-y-0' : 'translate-y-full'}`}
       >
         <div className="flex items-center justify-between relative">
           <div className="font-semibold text-xl">
             <div className="flex gap-4 items-center">
               <Link href="https://www.instagram.com/wais_autos">
-                <LuInstagram className="mt-1" size={28} />
+                <LuInstagram className="mt-0.5" size={28} />
               </Link>
               <span className="w-[5px] h-[30px] bg-blue-500 rounded-full inline-block"></span>
               <Link className="mt-0.5" href="/">
