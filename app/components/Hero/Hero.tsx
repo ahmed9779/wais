@@ -15,7 +15,11 @@ const Hero = () => {
 
   
   <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
-    Image
+    <img 
+    src='https://res.cloudinary.com/dxphmt4tc/image/upload/a_90/v1729612845/WAIS/znclhvciruyr3ilgesn4.jpg'
+    alt='Car'
+    className='w-full h-auto max-w-md rounded-lg shadow-lg'
+    />
   </div>
 </section>
 
