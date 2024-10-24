@@ -14,7 +14,7 @@ const Hero = () => {
 
 
 
-    
+
       <div className="md:w-1/2 flex justify-center mt-8 md:mt-0">
         <img
           src="https://res.cloudinary.com/dxphmt4tc/image/upload/v1729612837/WAIS/a5i4wd14pu8sticxsjwb.jpg"
