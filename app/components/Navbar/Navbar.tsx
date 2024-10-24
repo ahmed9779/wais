@@ -9,9 +9,9 @@ const Navbar = () => {
 
   return (
     <div className="pt-4">
-      <div
-        className={`bg-white bg-opacity-25 px-5 max-w-[1280px] mx-auto pt-5 pb-6 rounded-full transition-transform`}
-      >
+      <div 
+        className={` px-5 max-w-[1280px] mx-auto pt-5 pb-6 rounded-full `} 
+      > 
         <div className="flex items-center justify-between relative">
           <div className="font-semibold text-xl">
             <div className="flex gap-4 items-center">
@@ -19,7 +19,7 @@ const Navbar = () => {
                 <LuInstagram className="mt-0.5" size={28} />
               </Link>
               <span className="w-[5px] h-[30px] bg-blue-500 rounded-full inline-block"></span>
-              <Link className="mt-0.5" href="/">
+              <Link className="mt-0.5 font-semibold text-white transition duration-300 ease-in-out hover:bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent hover:text-transparent" href="/">
                 <h1>WAIS</h1>
               </Link>
             </div>
@@ -44,7 +44,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="/About"
+                href="/about"
                 className="font-semibold text-white transition duration-300 ease-in-out hover:bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent hover:text-transparent"
               >
                 About
@@ -53,42 +53,46 @@ const Navbar = () => {
           </ul>
 
           <div className="md:hidden">
-            <button onClick={() => setShowNav(!showNav)}>
+            <button 
+              onClick={() => setShowNav(!showNav)}
+              className={`transform transition-transform duration-300 ${showNav ? "rotate-90" : ""}`} 
+            >
               <CiMenuBurger size={30} />
             </button>
           </div>
         </div>
 
-        {showNav && (
-          <div className="md:hidden mt-4 pt-3">
-            <ul className="flex flex-col space-y-4">
-              <li>
-                <a
-                  href="/cars"
-                  className="font-semibold text-white transition duration-300 ease-in-out hover:bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent hover:text-transparent"
-                >
-                  Cars
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/sellmycar"
-                  className="font-semibold text-white transition duration-300 ease-in-out hover:bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent hover:text-transparent"
-                >
-                  Sell My Car
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/ambients"
-                  className="font-semibold text-white transition duration-300 ease-in-out hover:bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent hover:text-transparent"
-                >
-                  Ambient Lighting
-                </a>
-              </li>
-            </ul>
-          </div>
-        )}
+        
+        <div
+          className={`md:hidden mt-4 pt-3 overflow-hidden transition-all duration-500 ease-in-out ${showNav ? 'max-h-[300px]' : 'max-h-0'}`} 
+        >
+          <ul className="flex flex-col space-y-4">
+            <li>
+              <a
+                href="/contact"
+                className="font-semibold text-white transition duration-300 ease-in-out hover:bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent hover:text-transparent"
+              >
+                Contact Us
+              </a>
+            </li>
+            <li>
+              <a
+                href="/ambients"
+                className="font-semibold text-white transition duration-300 ease-in-out hover:bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent hover:text-transparent"
+              >
+                Ambient Lighting
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about"
+                className="font-semibold text-white transition duration-300 ease-in-out hover:bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent hover:text-transparent"
+              >
+                About
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
