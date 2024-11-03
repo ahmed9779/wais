@@ -19,9 +19,18 @@ export async function POST(request: Request) {
     const mailOptions = {
       from: process.env.MY_EMAIL,
       to: process.env.EMAIL_TO,
-      subject: 'Test',
-      text: 'Hello World, How are you!'
-    }
+      subject: `Contact Form Submission from ${formData.name}`,
+      html: `
+        <div>
+          <h2>Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${formData.name}</p>
+          <p><strong>Email:</strong> ${formData.email}</p>
+          <p><strong>Phone:</strong> ${formData.phone}</p>
+          <p><strong>Message:</strong> ${formData.message}</p>
+        </div>
+      `,
+    };
+    
 
     try {
       await transporter.sendMail(mailOptions);
