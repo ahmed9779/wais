@@ -44,13 +44,15 @@ const ContactForm = () => {
   };
 
   return (
-    <div>
-      <hr className="border-t-2 border-blue-500 max-w-[90%] md:max-w-[1280px] mx-auto"/>
-      <div className="p-6 max-w-[90%] md:max-w-[1280px] mx-auto">
+    <section className="flex flex-col md:flex-row items-center justify-center min-h-screen">
+      <div className="md:w-1/2 text-center md:text-left p-8 md:ml-5 animate-float-up">
+        <h2 className="text-3xl font-semibold mb-6">Contact Us</h2>
+        <p>Ready to enhance your vehicle with our premium aftermarket ambient lighting and CarPlay retrofitting services? We’re here to help you transform your driving experience. Whether you have questions or want to schedule an appointment, simply fill out the form below, and our dedicated team will get back to you shortly. Let’s make your car a reflection of your style!
+        </p>
+      </div>
 
-        <h2 className="text-3xl font-semibold mb-6 text-center">Contact Us</h2>
-        
-        <form onSubmit={handleSubmit} className="bg-white bg-opacity-25 p-8 rounded-xl shadow-md space-y-6">
+      <div className="md:w-1/2 flex justify-center mt-8 md:mt-0 animate-float-up">
+      <form className="bg-white bg-opacity-25 p-8 rounded-xl shadow-md space-y-6">
           <div className="flex flex-col md:flex-row md:space-x-6">
             <div className="flex-1">
               <label className="block text-lg font-medium mb-2" htmlFor="name">Name</label>
@@ -107,20 +109,19 @@ const ContactForm = () => {
             ></textarea>
           </div>
 
-        
           <div className="text-center">
             <button
               type="submit"
+              onSubmit={handleSubmit}
               className="px-6 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-purple-500 transition duration-300"
             >
               Submit
             </button>
           </div>
         </form>
-
         {status && <p className="text-center mt-4">{status}</p>}
       </div>
-    </div>
+    </section>
   );
 };
 

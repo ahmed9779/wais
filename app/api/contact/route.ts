@@ -31,7 +31,6 @@ export async function POST(request: Request) {
       `,
     };
     
-
     try {
       await transporter.sendMail(mailOptions);
       console.log('Email sent successfully.');
@@ -39,15 +38,6 @@ export async function POST(request: Request) {
       console.error('Error sending email:', error);
     }
     
-
-
-
-
-
-
-
-
-
     return NextResponse.json({ message: 'Form submitted successfully!' }, { status: 200 });
   } catch (error) {
     console.error("Error handling form data:", error);
