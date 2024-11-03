@@ -1,31 +1,56 @@
-'use client'
-import React, { useState } from 'react'
+'use client';
+import React, { useState } from 'react';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
   });
+
+  const [status, setStatus] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
-  console.log(formData);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('Form submitted successfully!');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        setStatus('Failed to submit form');
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setStatus('An error occurred. Please try again.');
+    }
+  };
 
   return (
     <div>
-      <hr className="border-t-2 border-blue-500 max-w-[90%] md:max-w-[1280px] mx-auto" />
+      <hr className="border-t-2 border-blue-500 max-w-[90%] md:max-w-[1280px] mx-auto"/>
       <div className="p-6 max-w-[90%] md:max-w-[1280px] mx-auto">
-        <h2 className="text-3xl font-semibold mb-6 text-center">Contact Us</h2>
 
-        <form className="bg-white bg-opacity-25 p-8 rounded-xl shadow-md space-y-6">
+        <h2 className="text-3xl font-semibold mb-6 text-center">Contact Us</h2>
+        
+        <form onSubmit={handleSubmit} className="bg-white bg-opacity-25 p-8 rounded-xl shadow-md space-y-6">
           <div className="flex flex-col md:flex-row md:space-x-6">
             <div className="flex-1">
               <label className="block text-lg font-medium mb-2" htmlFor="name">Name</label>
@@ -91,9 +116,11 @@ const ContactForm = () => {
             </button>
           </div>
         </form>
+
+        {status && <p className="text-center mt-4">{status}</p>}
       </div>
     </div>
   );
-}
+};
 
 export default ContactForm;
