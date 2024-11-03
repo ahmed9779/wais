@@ -10,7 +10,7 @@ body {
   @keyframes float-up {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(80px);
     }
     to {
       opacity: 1;
