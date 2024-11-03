@@ -106,8 +106,8 @@ const ContactForm = () => {
               required
             ></textarea>
           </div>
-          </form>
 
+        
           <div className="text-center">
             <button
               type="submit"
@@ -116,7 +116,7 @@ const ContactForm = () => {
               Submit
             </button>
           </div>
-        
+        </form>
 
         {status && <p className="text-center mt-4">{status}</p>}
       </div>
