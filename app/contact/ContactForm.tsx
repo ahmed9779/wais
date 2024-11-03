@@ -44,7 +44,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center min-h-screen">
+    <section className="flex flex-col md:flex-row items-center justify-center min-h-[880px] max-w-7xl mx-auto px-4">
       <div className="md:w-1/2 text-center md:text-left p-8 md:ml-5 animate-float-up">
         <h2 className="text-3xl font-semibold mb-6">Contact Us</h2>
         <p>
