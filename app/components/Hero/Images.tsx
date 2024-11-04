@@ -29,14 +29,14 @@ const Images = () => {
     const endX = e.changedTouches[0].clientX;
     if (startX !== null) {
       if (endX < startX - 50) {
-        // Swipe left
+      
         setSelectedImage((prev) => (prev + 1) % imageUrls.length);
       } else if (endX > startX + 50) {
-        // Swipe right
+      
         setSelectedImage((prev) => (prev - 1 + imageUrls.length) % imageUrls.length);
       }
     }
-    setStartX(null); // Reset startX
+    setStartX(null); 
   };
 
   return (
