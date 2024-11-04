@@ -15,7 +15,7 @@ const Images = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setSelectedImage((prev) => (prev + 1) % imageUrls.length);
-    }, 3000); 
+    }, 10000); 
 
     return () => clearInterval(interval); 
   }, []);
@@ -23,12 +23,12 @@ const Images = () => {
   return (
     <div className="flex flex-col items-center overflow-hidden">
   
-      <div className="relative w-full h-80 flex justify-center mb-4">
+      <div className="relative w-[350px] h-80 flex justify-center mb-4">
         {imageUrls.map((url, index) => (
           <img
             key={index}
             src={url}
-            className={`absolute w-80 h-auto transition-transform duration-500 ease-in-out rounded-lg ${
+            className={`absolute w-[350px] h-auto transition-transform duration-500 ease-in-out rounded-lg ${
               selectedImage === index ? 'translate-x-0' : 'translate-x-full'
             }`}
             alt={`Slide ${index + 1}`}
@@ -37,7 +37,7 @@ const Images = () => {
       </div>
 
 
-      <div className="flex gap-4">
+      <div className="flex gap-4 mt-40">
         {imageUrls.map((url, index) => (
           <div key={index} className="relative rounded-lg overflow-hidden mt-10 pb-10">
             <img
