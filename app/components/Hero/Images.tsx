@@ -11,6 +11,7 @@ const imageUrls = [
 
 const Images = () => {
   const [selectedImage, setSelectedImage] = useState<number>(0);
+  const [startX, setStartX] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,10 +21,32 @@ const Images = () => {
     return () => clearInterval(interval); 
   }, []);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX !== null) {
+      if (endX < startX - 50) {
+        // Swipe left
+        setSelectedImage((prev) => (prev + 1) % imageUrls.length);
+      } else if (endX > startX + 50) {
+        // Swipe right
+        setSelectedImage((prev) => (prev - 1 + imageUrls.length) % imageUrls.length);
+      }
+    }
+    setStartX(null); // Reset startX
+  };
+
   return (
     <div className="flex flex-col items-center overflow-hidden">
   
-      <div className="relative w-[350px] h-80 flex justify-center mb-4">
+      <div 
+        className="relative w-[350px] h-80 flex justify-center mb-4"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         {imageUrls.map((url, index) => (
           <img
             key={index}
@@ -36,10 +59,9 @@ const Images = () => {
         ))}
       </div>
 
-
-      <div className="flex gap-4 mt-40">
+      <div className="flex gap-4 mt-40 pb-10">
         {imageUrls.map((url, index) => (
-          <div key={index} className="relative rounded-lg overflow-hidden mt-10 pb-10">
+          <div key={index} className="relative rounded-lg overflow-hidden">
             <img
               onClick={() => setSelectedImage(index)}
               className={`w-18 h-10 cursor-pointer transition-transform duration-200 ${
