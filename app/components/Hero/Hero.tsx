@@ -1,4 +1,5 @@
 import React from 'react';
+import Images from './Images'
 
 const Hero = () => {
   return (
@@ -14,11 +15,8 @@ const Hero = () => {
       </div>
 
       <div className="md:w-1/2 flex justify-center mt-8 md:mt-0 animate-float-up">
-        <img
-          src="https://res.cloudinary.com/dxphmt4tc/image/upload/v1729612837/WAIS/a5i4wd14pu8sticxsjwb.jpg"
-          alt="Car"
-          className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto rounded-lg shadow-lg"
-        />
+
+        <Images/>
       </div>
     </section>
   );
