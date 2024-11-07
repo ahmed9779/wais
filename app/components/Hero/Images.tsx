@@ -49,6 +49,7 @@ const Images = () => {
       >
         {imageUrls.map((url, index) => (
           <img
+          rel='preload'
             key={index}
             src={url}
             className={`absolute w-[350px] h-auto transition-transform duration-500 ease-in-out rounded-lg ${
@@ -63,6 +64,7 @@ const Images = () => {
         {imageUrls.map((url, index) => (
           <div key={index} className="relative rounded-lg overflow-hidden">
             <img
+            rel='preload'
               onClick={() => setSelectedImage(index)}
               className={`w-18 h-10 cursor-pointer transition-transform duration-200 ${
                 selectedImage === index ? 'transform scale-110 border-2 border-gray-700' : ''
